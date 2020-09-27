@@ -1,5 +1,5 @@
-import React from "react"
-import * as Icon from "react-feather"
+import React from "react";
+import * as Icon from "react-feather";
 
 const horizontalMenuConfig = [
   {
@@ -8,7 +8,7 @@ const horizontalMenuConfig = [
     type: "item",
     icon: <Icon.Home size={20} />,
     permissions: ["admin", "editor"],
-    navLink: "/",
+    navLink: "/dashboard",
   },
   {
     id: "page2",
@@ -17,7 +17,7 @@ const horizontalMenuConfig = [
     icon: <Icon.File size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/page2",
-  }  
-]
+  },
+];
 
-export default horizontalMenuConfig
+export default horizontalMenuConfig;

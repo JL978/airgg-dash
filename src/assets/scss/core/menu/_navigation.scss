@@ -165,7 +165,6 @@
   &:not(.hide-sidebar) {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
-
 }
 
 // Main Navigation
@@ -208,7 +207,6 @@
           rgba($primary, 1),
           rgba($primary, 0.7)
         );
-        box-shadow: 0 0 10px 1px rgba($primary, 0.7) !important;
       }
     }
     .menu-content {
@@ -218,7 +216,6 @@
           rgba($primary, 1),
           rgba($primary, 0.7)
         );
-        box-shadow: 0 0 10px 1px rgba($primary, 0.7) !important;
       }
     }
   }
@@ -275,7 +272,7 @@
 // Navigation Themes
 
 .horizontal-layout,
-.vertical-layout{
+.vertical-layout {
   &.theme-primary {
     .navbar-container,
     .navbar-header {
@@ -415,8 +412,6 @@ body {
     }
   }
 }
-
-
 
 // for collapsed static layout
 body.menu-collapsed {
