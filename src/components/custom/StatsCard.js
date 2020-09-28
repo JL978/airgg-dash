@@ -1,14 +1,17 @@
 import React from "react";
 import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import homeroute from "../../configs/homeroute";
 
-export default function StatsCard({ title, unit, stat, updated }) {
+export default function StatsCard({ title, unit, stat, updated, view }) {
   return (
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <a href="/">
-          <small className="text-secondary">All Time</small>
-        </a>
+        {view !== "simplified" && (
+          <a href={homeroute + "/analytics"}>
+            <small className="text-secondary">All Time</small>
+          </a>
+        )}
       </CardHeader>
       <CardBody className="pt-50">
         <h2 className="text-bold-600">
@@ -17,7 +20,11 @@ export default function StatsCard({ title, unit, stat, updated }) {
           {unit === "%" && "%"}
         </h2>
 
-        <small className="text-secondary">Updated {updated} seconds ago</small>
+        {view !== "simplified" && (
+          <small className="text-secondary">
+            Updated {updated} seconds ago
+          </small>
+        )}
       </CardBody>
     </Card>
   );

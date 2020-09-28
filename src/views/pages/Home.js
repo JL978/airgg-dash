@@ -8,7 +8,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <h1>Dashboard</h1>
+        <h1 className="mb-2">Dashboard</h1>
         <Row>
           <Col xl="6" lg="8" sm="12">
             <BetaCard />
@@ -27,7 +27,7 @@ class Home extends React.Component {
         </Row>
         <Row>
           <Col sm="12">
-            <StatsGraph title="Revenue" updated={2} />
+            <StatsGraph title="Revenue" updated={2} height={300} />
           </Col>
         </Row>
       </>

@@ -101,13 +101,16 @@ const state = {
   ],
 };
 
-export default function StatsGraph({ title, unit, stat, updated }) {
+export default function StatsGraph({ title, updated, height }) {
   return (
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <UncontrolledDropdown>
-          <DropdownToggle tag="small" className="text-bold-500 cursor-pointer">
+          <DropdownToggle
+            tag="small"
+            className="text-secondary text-bold-500 cursor-pointer"
+          >
             Last 7 days <ChevronDown size={10} />
           </DropdownToggle>
           <DropdownMenu right>
@@ -122,7 +125,7 @@ export default function StatsGraph({ title, unit, stat, updated }) {
           options={state.options}
           series={state.series}
           type="line"
-          height={300}
+          height={height}
         />
 
         <small className="text-secondary">Updated {updated} seconds ago</small>
