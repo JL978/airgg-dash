@@ -1,11 +1,17 @@
 import { Card, CardBody } from "reactstrap";
-import { AlertTriangle } from "react-feather";
-
-import React from "react";
+import { AlertTriangle, X } from "react-feather";
+import classnames from "classnames";
+import React, { useState } from "react";
 
 export default function BetaCard() {
+  const [isVisible, setVisible] = useState(true);
+
   return (
-    <Card>
+    <Card
+      className={classnames({
+        "d-none": isVisible === false,
+      })}
+    >
       <CardBody className="stats-card-body d-flex flex-row align-items-center">
         <div className="icon-section mr-2">
           <AlertTriangle size={40} />
@@ -16,6 +22,10 @@ export default function BetaCard() {
             Keep in mind this website is beta, please report every bug you can
             find.
           </small>
+        </div>
+
+        <div className="flex-grow-1 d-flex justify-content-end align-self-start">
+          <X size={20} onClick={() => setVisible(false)} />
         </div>
       </CardBody>
     </Card>

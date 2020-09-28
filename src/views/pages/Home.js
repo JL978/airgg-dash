@@ -1,6 +1,8 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import BetaCard from "../../components/custom/BetaCard";
+import StatsCard from "../../components/custom/StatsCard";
+import StatsGraph from "../../components/custom/StatsGraph";
 
 class Home extends React.Component {
   render() {
@@ -10,6 +12,22 @@ class Home extends React.Component {
         <Row>
           <Col xl="6" lg="8" sm="12">
             <BetaCard />
+          </Col>
+        </Row>
+        <Row>
+          <Col xl="3" md="4" sm="12">
+            <StatsCard title="Balance" unit="$" stat={0.0} updated={2} />
+          </Col>
+          <Col xl="3" md="4" sm="12">
+            <StatsCard title="Orders" stat={0} updated={2} />
+          </Col>
+          <Col xl="3" md="4" sm="12">
+            <StatsCard title="Ticket" stat={0} updated={2} />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm="12">
+            <StatsGraph title="Revenue" updated={2} />
           </Col>
         </Row>
       </>
