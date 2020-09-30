@@ -16,7 +16,7 @@ export default function StatsCard({ title, unit, stat, updated, view }) {
       <CardBody className="pt-50">
         <h2 className="text-bold-600">
           {unit === "$" && "$"}
-          {stat.toString()}
+          {unit === "$" ? stat.toFixed(2) : stat.toString()}
           {unit === "%" && "%"}
         </h2>
 

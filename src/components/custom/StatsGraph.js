@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardBody,
@@ -88,6 +88,18 @@ const state = {
     tooltip: {
       x: { show: false },
     },
+    noData: {
+      text: "No data",
+      align: "center",
+      verticalAlign: "middle",
+      offsetX: 0,
+      offsetY: 0,
+      style: {
+        color: undefined,
+        fontSize: "14px",
+        fontFamily: "Poppins",
+      },
+    },
   },
   series: [
     {
@@ -102,6 +114,9 @@ const state = {
 };
 
 export default function StatsGraph({ title, updated, height }) {
+  const options = ["Last 24 hours", "Last week", "Last month", "All time"];
+  const [option, setOption] = useState(0);
+
   return (
     <Card>
       <CardHeader>
@@ -111,19 +126,25 @@ export default function StatsGraph({ title, updated, height }) {
             tag="small"
             className="text-secondary text-bold-500 cursor-pointer"
           >
-            Last 7 days <ChevronDown size={10} />
+            {options[option]} <ChevronDown size={10} />
           </DropdownToggle>
           <DropdownMenu right>
-            <DropdownItem>Last 28 days</DropdownItem>
-            <DropdownItem>Last Month</DropdownItem>
-            <DropdownItem>Last Year</DropdownItem>
+            {options.map((text, index) => {
+              if (index === option) return null;
+
+              return (
+                <DropdownItem key={index} onClick={() => setOption(index)}>
+                  {text}
+                </DropdownItem>
+              );
+            })}
           </DropdownMenu>
         </UncontrolledDropdown>
       </CardHeader>
       <CardBody className="pt-50">
         <Chart
           options={state.options}
-          series={state.series}
+          series={[]}
           type="line"
           height={height}
         />

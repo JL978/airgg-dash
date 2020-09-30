@@ -1,8 +1,9 @@
 import React from "react";
+import NoProduct from "../../components/custom/NoProduct";
 
 class Product extends React.Component {
   render() {
-    return <h1>Products</h1>;
+    return <NoProduct />;
   }
 }
 
