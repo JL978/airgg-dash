@@ -10,10 +10,10 @@ import {
   Input,
   Label,
 } from "reactstrap";
-import { Mail, Lock, Check, Facebook, Twitter, GitHub } from "react-feather";
+import { Mail, Lock, Check } from "react-feather";
 import { history } from "../../../../history";
 import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
-import googleSvg from "../../../../assets/img/svg/google.svg";
+import GoogleLogin from "react-google-login";
 
 import homeroute from "../../../../configs/homeroute";
 import "../../../../assets/scss/pages/authentication.scss";
@@ -31,6 +31,11 @@ class Login extends React.Component {
       });
     }
   };
+
+  responseGoogle = (response) => {
+    console.log(response);
+  };
+
   render() {
     return (
       <Row className="m-0 justify-content-center">
@@ -47,7 +52,7 @@ class Login extends React.Component {
               <Col className="p-0">
                 <Card className="rounded-0 mb-0 px-2">
                   <CardBody>
-                    <h2 className="text-center text-bold-700 mb-5">Sign In</h2>
+                    <h2 className="text-center text-bold-700 mb-3">Sign In</h2>
                     <Form onSubmit={(e) => e.preventDefault()}>
                       <FormGroup className="form-label-group position-relative has-icon-left">
                         <Input
@@ -83,12 +88,16 @@ class Login extends React.Component {
                           color="primary"
                           type="submit"
                           onClick={() => history.push(homeroute)}
-                          className="btn-block"
+                          className="btn-block text-bold-700"
+                          style={{
+                            color: "black",
+                            backgroundColor: "#ffffff",
+                          }}
                         >
                           Sign In
                         </Button>
                       </FormGroup>
-                      <FormGroup className="d-flex justify-content-between align-items-center">
+                      <FormGroup className="d-flex justify-content-between align-items-center mb-0">
                         <Checkbox
                           color="primary"
                           icon={<Check className="vx-icon" size={16} />}
@@ -100,27 +109,17 @@ class Login extends React.Component {
                     </Form>
                   </CardBody>
                   <div className="auth-footer">
-                    <div className="divider">
+                    <div className="divider mt-0">
                       <div className="divider-text">OR</div>
                     </div>
                     <div className="footer-btn">
-                      <Button.Ripple className="btn-facebook" color="">
-                        <Facebook size={14} />
-                      </Button.Ripple>
-                      <Button.Ripple className="btn-twitter" color="">
-                        <Twitter size={14} stroke="white" />
-                      </Button.Ripple>
-                      <Button.Ripple className="btn-google" color="">
-                        <img
-                          src={googleSvg}
-                          alt="google"
-                          height="15"
-                          width="15"
-                        />
-                      </Button.Ripple>
-                      <Button.Ripple className="btn-github" color="">
-                        <GitHub size={14} stroke="white" />
-                      </Button.Ripple>
+                      <GoogleLogin
+                        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                        buttonText="Continue with Google"
+                        onSuccess={this.responseGoogle}
+                        onFailure={this.responseGoogle}
+                        className="w-100 justify-content-center btn-primary text-dark mb-2"
+                      />
                     </div>
                   </div>
                 </Card>

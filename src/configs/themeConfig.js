@@ -12,6 +12,7 @@ const themeConfig = {
   hideScrollToTop: false, // options[Boolean]: true, false(default)
   menuTheme: "primary", // options[String]: primary / success / danger / info / warning / dark
   direction: "ltr", // options[String] : ltr / rtl
+  layoutDark: true,
 };
 
 export default themeConfig;
