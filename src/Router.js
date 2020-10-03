@@ -19,6 +19,8 @@ const Blacklist = lazy(() => import("./views/pages/Blacklist"));
 const Fraud = lazy(() => import("./views/pages/Fraud"));
 
 const login = lazy(() => import("./views/pages/authentication/login/Login"));
+const forget = lazy(() => import("./views/pages/authentication/login/Forget"));
+const signup = lazy(() => import("./views/pages/authentication/login/SignUp"));
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -77,6 +79,8 @@ class AppRouter extends React.Component {
           <AppRoute path={homeroute + "/fraud"} component={Fraud} />
 
           <AppRoute path="/pages/login" component={login} fullLayout />
+          <AppRoute path="/pages/reset" component={forget} fullLayout />
+          <AppRoute path="/pages/signup" component={signup} fullLayout />
         </Switch>
       </Router>
     );

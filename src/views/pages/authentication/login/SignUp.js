@@ -9,19 +9,20 @@ import {
   Input,
   Label,
 } from "reactstrap";
-import { Mail, Lock, Check } from "react-feather";
+import { Mail, Lock, User } from "react-feather";
 import { history } from "../../../../history";
-import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
 import GoogleLogin from "react-google-login";
 
 import homeroute from "../../../../configs/homeroute";
 import "../../../../assets/scss/pages/authentication.scss";
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   state = {
     activeTab: "1",
+    username: "",
     email: "",
     password: "",
+    confirm_password: "",
   };
   toggle = (tab) => {
     if (this.state.activeTab !== tab) {
@@ -50,9 +51,23 @@ class Login extends React.Component {
             <Row className="m-0">
               <Col className="p-0">
                 <Card className="rounded-0 mb-0 px-2">
-                  <CardBody>
-                    <h2 className="text-center text-bold-700 mb-3">Sign In</h2>
+                  <CardBody className="pb-0">
+                    <h2 className="text-center text-bold-700 mb-3">Sign Up</h2>
                     <Form onSubmit={(e) => e.preventDefault()}>
+                      <FormGroup className="form-label-group position-relative has-icon-left">
+                        <Input
+                          type="text"
+                          placeholder="Username"
+                          value={this.state.username}
+                          onChange={(e) =>
+                            this.setState({ username: e.target.value })
+                          }
+                        />
+                        <div className="form-control-position">
+                          <User size={15} />
+                        </div>
+                        <Label>Username</Label>
+                      </FormGroup>
                       <FormGroup className="form-label-group position-relative has-icon-left">
                         <Input
                           type="email"
@@ -81,6 +96,20 @@ class Login extends React.Component {
                         </div>
                         <Label>Password</Label>
                       </FormGroup>
+                      <FormGroup className="form-label-group position-relative has-icon-left">
+                        <Input
+                          type="password"
+                          placeholder="Confirm password"
+                          value={this.state.confirm_password}
+                          onChange={(e) =>
+                            this.setState({ confirm_password: e.target.value })
+                          }
+                        />
+                        <div className="form-control-position">
+                          <Lock size={15} />
+                        </div>
+                        <Label>Confirm Password</Label>
+                      </FormGroup>
 
                       <FormGroup>
                         <button
@@ -93,19 +122,8 @@ class Login extends React.Component {
                             opacity: 0.9,
                           }}
                         >
-                          Sign In
+                          Sign Up
                         </button>
-                      </FormGroup>
-                      <FormGroup className="d-flex justify-content-between align-items-center mb-0">
-                        <Checkbox
-                          color="primary"
-                          icon={<Check className="vx-icon" size={16} />}
-                          label="Remember me"
-                        />
-
-                        <div className="float-right">
-                          <a href="/pages/reset">Forgot Password?</a>
-                        </div>
                       </FormGroup>
                     </Form>
                   </CardBody>
@@ -122,6 +140,26 @@ class Login extends React.Component {
                         className="w-100 justify-content-center text-dark text-bold-500 mb-2"
                       />
                     </div>
+                    <div className="d-flex justify-content-center mb-2">
+                      <div className="text-center">
+                        By signing up, you agree to Aired's{" "}
+                        <span className="text-bold-700">
+                          <a href="/pages/tou">Terms of Use</a>
+                        </span>
+                        , and{" "}
+                        <span className="text-bold-700">
+                          <a href="/pages/privacy">Privacy Policy</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-center mb-2">
+                      <div className="text-center">
+                        Haven't received your{" "}
+                        <span className="text-bold-700">
+                          <a href="/pages/tou">verification email?</a>
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </Card>
               </Col>
@@ -129,9 +167,9 @@ class Login extends React.Component {
           </Card>
           <div className="d-flex justify-content-center mt-2">
             <div>
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <span className="text-bold-700">
-                <a href="/pages/signup">Sign Up</a>
+                <a href="/pages/login">Log In</a>
               </span>
             </div>
           </div>
@@ -140,4 +178,4 @@ class Login extends React.Component {
     );
   }
 }
-export default Login;
+export default SignUp;
