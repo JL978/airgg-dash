@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Card,
   CardBody,
   Row,
@@ -84,18 +83,17 @@ class Login extends React.Component {
                       </FormGroup>
 
                       <FormGroup>
-                        <Button
-                          color="primary"
+                        <button
                           type="submit"
                           onClick={() => history.push(homeroute)}
-                          className="btn-block text-bold-700"
+                          className="btn btn-block text-bold-700"
                           style={{
-                            color: "black",
+                            color: "#101010",
                             backgroundColor: "#ffffff",
                           }}
                         >
                           Sign In
-                        </Button>
+                        </button>
                       </FormGroup>
                       <FormGroup className="d-flex justify-content-between align-items-center mb-0">
                         <Checkbox
@@ -118,7 +116,7 @@ class Login extends React.Component {
                         buttonText="Continue with Google"
                         onSuccess={this.responseGoogle}
                         onFailure={this.responseGoogle}
-                        className="w-100 justify-content-center btn-primary text-dark mb-2"
+                        className="w-100 justify-content-center text-dark text-bold-500 mb-2"
                       />
                     </div>
                   </div>
