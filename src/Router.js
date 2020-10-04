@@ -17,6 +17,7 @@ const Ticket = lazy(() => import("./views/pages/Ticket"));
 const Feedback = lazy(() => import("./views/pages/Feedback"));
 const Blacklist = lazy(() => import("./views/pages/Blacklist"));
 const Fraud = lazy(() => import("./views/pages/Fraud"));
+const Coupon = lazy(() => import("./views/pages/Coupon"));
 
 const login = lazy(() => import("./views/pages/authentication/login/Login"));
 const forget = lazy(() => import("./views/pages/authentication/login/Forget"));
@@ -77,6 +78,7 @@ class AppRouter extends React.Component {
           <AppRoute path={homeroute + "/feedback"} component={Feedback} />
           <AppRoute path={homeroute + "/blacklists"} component={Blacklist} />
           <AppRoute path={homeroute + "/fraud"} component={Fraud} />
+          <AppRoute path={homeroute + "/coupons"} component={Coupon} />
 
           <AppRoute path="/pages/login" component={login} fullLayout />
           <AppRoute path="/pages/reset" component={forget} fullLayout />

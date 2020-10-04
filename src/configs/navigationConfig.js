@@ -28,6 +28,14 @@ const navigationConfig = [
     navLink: homeroute + "/products",
   },
   {
+    id: "coupons",
+    title: "Coupons",
+    type: "item",
+    icon: <Icon.CreditCard size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: homeroute + "/coupons",
+  },
+  {
     id: "payments",
     title: "Payments",
     type: "item",
