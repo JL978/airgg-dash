@@ -31,7 +31,7 @@ const navigationConfig = [
     id: "coupons",
     title: "Coupons",
     type: "item",
-    icon: <Icon.CreditCard size={20} />,
+    icon: <Icon.DollarSign size={20} />,
     permissions: ["admin", "editor"],
     navLink: homeroute + "/coupons",
   },
@@ -74,6 +74,22 @@ const navigationConfig = [
     icon: <Icon.AlertOctagon size={20} />,
     permissions: ["admin", "editor"],
     navLink: homeroute + "/fraud",
+  },
+  {
+    id: "help",
+    title: "Help",
+    type: "item",
+    icon: <Icon.HelpCircle size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: homeroute + "/help",
+  },
+  {
+    id: "setting",
+    title: "Settings",
+    type: "item",
+    icon: <Icon.Settings size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: homeroute + "/settings",
   },
 ];
 

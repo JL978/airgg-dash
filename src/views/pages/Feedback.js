@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardHeader, CardTitle } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 import DataTable from "react-data-table-component";
 
 const columns = [
